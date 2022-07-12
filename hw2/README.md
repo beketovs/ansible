@@ -11,7 +11,7 @@
 
 1. Приготовьте свой собственный inventory файл `prod.yml`.
 ```
-beketov@beketovs-MacBook-Pro playbook %         ansible-playbook site.yml -i inventory/prod.yml
+beketov@beketovs-MacBook-Pro playbook % ansible-playbook site.yml -i inventory/prod.yml
 
 PLAY [Install Clickhouse] *************************************************************************************************************************
 
