@@ -15,7 +15,7 @@ vector_version - версия vector
 - скачивание дистрибутива
 - установка дистрибутива
 - запуск службы
-- 
+
 ## Подготовка к выполнению
 
 1. (Необязательно) Изучите, что такое [clickhouse](https://www.youtube.com/watch?v=fjTNS2zkeBs) и [vector](https://www.youtube.com/watch?v=CgEhyffisLY)
