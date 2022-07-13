@@ -1,5 +1,21 @@
 # Домашнее задание к занятию "08.02 Работа с Playbook"
 
+## Описание Playbook
+Playbook запускает установку clickhouse и vector на разные ВМ.
+### GROUP VARS
+clickhouse_version - версия clickhouse
+clickhouse_packages - пакеты, для развертывания clickhouse
+vector_version - версия vector
+### Install clickhouse
+- скачивание дистрибутивов
+- установка дистрибутивов
+- попытка скачать с другого репозитория если первый недоступен
+- запуск службы
+### Install vector
+- скачивание дистрибутива
+- установка дистрибутива
+- запуск службы
+- 
 ## Подготовка к выполнению
 
 1. (Необязательно) Изучите, что такое [clickhouse](https://www.youtube.com/watch?v=fjTNS2zkeBs) и [vector](https://www.youtube.com/watch?v=CgEhyffisLY)
