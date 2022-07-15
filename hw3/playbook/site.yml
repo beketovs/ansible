@@ -8,7 +8,8 @@
         name: clickhouse-server
         state: restarted
   tasks:
-    - block:
+    - name: Block clickhouse
+      block:
         - name: Get clickhouse distrib
           ansible.builtin.get_url:
             url: "https://packages.clickhouse.com/rpm/stable/{{ item }}-{{ clickhouse_version }}.noarch.rpm"
@@ -28,7 +29,7 @@
           - clickhouse-common-static-{{ clickhouse_version }}.rpm
           - clickhouse-client-{{ clickhouse_version }}.rpm
           - clickhouse-server-{{ clickhouse_version }}.rpm
-      notify: 
+      notify:
         - Start clickhouse service
     - name: Flush handlers
       ansible.builtin.meta: flush_handlers
@@ -97,6 +98,7 @@
       git:
         repo: https://github.com/VKCOM/lighthouse.git
         dest: ./lighthouse
+        version: master
     - name: Config for lighthouse
       become: true
       template:
