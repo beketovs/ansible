@@ -1,0 +1,4 @@
+---
+# defaults file for lighthouse-role
+nginx_user_name: root 
+lighthouse_location_dir: /home/beketov/lighthouse
