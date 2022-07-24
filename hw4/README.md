@@ -31,9 +31,67 @@
 11. В ответ приведите ссылки на оба репозитория с roles и одну ссылку на репозиторий с playbook.
 
 ---
+```
+beketov@beketovs-MacBook-Pro hw4 % ansible-playbook -i inventory/prod.yml site.yml 
 
-### Как оформить ДЗ?
+PLAY [Install Clickhouse] *************************************************************************************************
 
-Выполненное домашнее задание пришлите ссылкой на .md-файл в вашем репозитории.
+TASK [Gathering Facts] ****************************************************************************************************
+ok: [clickhouse-01]
 
+TASK [clickhouse-role : Get clickhouse distrib] ***************************************************************************
+ok: [clickhouse-01] => (item=clickhouse-client)
+ok: [clickhouse-01] => (item=clickhouse-server)
+failed: [clickhouse-01] (item=clickhouse-common-static) => {"ansible_loop_var": "item", "changed": false, "dest": "./clickhouse-common-static-22.3.3.44.rpm", "elapsed": 0, "gid": 1000, "group": "beketov", "item": "clickhouse-common-static", "mode": "0644", "msg": "Request failed", "owner": "beketov", "response": "HTTP Error 404: Not Found", "secontext": "unconfined_u:object_r:user_home_t:s0", "size": 246310036, "state": "file", "status_code": 404, "uid": 1000, "url": "https://packages.clickhouse.com/rpm/stable/clickhouse-common-static-22.3.3.44.noarch.rpm"}
+
+TASK [clickhouse-role : Get clickhouse distrib] ***************************************************************************
+ok: [clickhouse-01]
+
+TASK [clickhouse-role : Install clickhouse packages] **********************************************************************
+ok: [clickhouse-01]
+
+TASK [clickhouse-role : Flush handlers] ***********************************************************************************
+
+TASK [clickhouse-role : Create database] **********************************************************************************
+ok: [clickhouse-01]
+
+PLAY [Install vector  packages] *******************************************************************************************
+
+TASK [Gathering Facts] ****************************************************************************************************
+ok: [vector-01]
+
+TASK [vector-role : Get vector distrib] ***********************************************************************************
+ok: [vector-01]
+
+TASK [vector-role : Install package] **************************************************************************************
+ok: [vector-01]
+
+PLAY [Install lighthouse] *************************************************************************************************
+
+TASK [Gathering Facts] ****************************************************************************************************
+ok: [lighthouse-01]
+
+TASK [lighthouse-role : Install dependencies for lighthouse] **************************************************************
+ok: [lighthouse-01]
+
+TASK [lighthouse-role : Add epel-release for nginx] ***********************************************************************
+ok: [lighthouse-01]
+
+TASK [lighthouse-role : Install nginx] ************************************************************************************
+ok: [lighthouse-01]
+
+TASK [lighthouse-role : Create config for nginx] **************************************************************************
+ok: [lighthouse-01]
+
+TASK [lighthouse-role : Install lighthouse] *******************************************************************************
+ok: [lighthouse-01]
+
+TASK [lighthouse-role : Config for lighthouse] ****************************************************************************
+ok: [lighthouse-01]
+
+PLAY RECAP ****************************************************************************************************************
+clickhouse-01              : ok=4    changed=0    unreachable=0    failed=0    skipped=0    rescued=1    ignored=0   
+lighthouse-01              : ok=7    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+vector-01                  : ok=3    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0 
+```
 ---
