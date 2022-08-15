@@ -10,6 +10,9 @@
 6. Заходим под admin\admin, меняем пароль на свой
 7.  Проверяем готовность Nexus через [бразуер](http://localhost:8081)
 8. Подключаемся под admin\admin123, меняем пароль, сохраняем анонимный доступ
+<img width="1431" alt="Screen Shot 2022-08-16 at 00 08 05" src="https://user-images.githubusercontent.com/36231585/184718827-061af7bb-fb29-4719-88b9-ff88f974cd99.png">
+<img width="1427" alt="Screen Shot 2022-08-16 at 00 08 10" src="https://user-images.githubusercontent.com/36231585/184718850-ebd61aa4-9295-45fb-9917-86961566dfa7.png">
+
 
 ## Знакомоство с SonarQube
 
