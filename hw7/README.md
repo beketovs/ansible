@@ -59,6 +59,16 @@
 1. Меняем в `pom.xml` блок с зависимостями под наш артефакт из первого пункта задания для Nexus (java с версией 8_282)
 2. Запускаем команду `mvn package` в директории с `pom.xml`, ожидаем успешного окончания
 3. Проверяем директорию `~/.m2/repository/`, находим наш артефакт
+```
+beketov@beketovs-MacBook-Pro 8_282 % ls -al
+total 128
+drwxr-xr-x  6 beketov  staff    192 Aug 16 00:50 .
+drwxr-xr-x  3 beketov  staff     96 Aug 16 00:50 ..
+-rw-r--r--  1 beketov  staff    175 Aug 16 00:50 _remote.repositories
+-rw-r--r--  1 beketov  staff  50327 Aug 16 00:50 java-8_282-distrib.tar.gz
+-rw-r--r--  1 beketov  staff     40 Aug 16 00:50 java-8_282-distrib.tar.gz.sha1
+-rw-r--r--  1 beketov  staff    394 Aug 16 00:50 java-8_282.pom.lastUpdated
+```
 4. В ответе присылаем исправленный файл `pom.xml`
 
 ---
