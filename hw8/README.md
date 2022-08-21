@@ -18,6 +18,9 @@
 7. Проверить работоспособность, исправить ошибки, исправленный Pipeline вложить в репозиторий в файл `ScriptedJenkinsfile`.
 8. Отправить ссылку на репозиторий с ролью и Declarative Pipeline и Scripted Pipeline.
 
+[Declarative Pipeline](https://github.com/beketovs/ansible/blob/main/hw8/Jenkinsfile)
+[Scripted Pipeline](https://github.com/beketovs/ansible/blob/main/hw8/ScriptedJenkinsfile)
+
 ## Необязательная часть
 
 1. Создать скрипт на groovy, который будет собирать все Job, которые завершились хотя бы раз неуспешно. Добавить скрипт в репозиторий с решением с названием `AllJobFailure.groovy`.
