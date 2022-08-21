@@ -5,12 +5,12 @@ node("centos"){
         }
     }
     stage("Download Ansible roles"){
-        dir('Ansible-Clickhouse-Vector-Lighthouse'){
+        dir('hw8/Ansible-Clickhouse-Vector-Lighthouse'){
             sh 'ansible-galaxy install -r requirements.yml -p roles --force'
         }
     }
     stage("Run playbook"){
-        dir('Ansible-Clickhouse-Vector-Lighthouse'){
+        dir('hw8/Ansible-Clickhouse-Vector-Lighthouse'){
             sh 'ansible-playbook site.yml -i inventory/prod.yml'
         }
     }
