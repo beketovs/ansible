@@ -19,6 +19,7 @@
 8. Отправить ссылку на репозиторий с ролью и Declarative Pipeline и Scripted Pipeline.
 
 [Declarative Pipeline](https://github.com/beketovs/ansible/blob/main/hw8/Jenkinsfile)
+
 [Scripted Pipeline](https://github.com/beketovs/ansible/blob/main/hw8/ScriptedJenkinsfile)
 
 ## Необязательная часть
