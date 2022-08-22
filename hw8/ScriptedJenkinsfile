@@ -1,9 +1,9 @@
 node("centos"){
     properties([
-  parameters([
-     booleanParam(name: 'DEPLOY_SHA', defaultValue: false),
-  ])
-])
+        parameters([
+            booleanParam(name: 'prod_run', defaultValue: false),
+        ])
+    ])
         stage("Git checkout"){
                 git branch: 'main', credentialsId: '55de7e06-b284-4c1e-9345-1e0707bbc2d0', url: 'git@github.com:beketovs/ansible.git'
         }
@@ -16,6 +16,5 @@ node("centos"){
                 sh '''cd hw8/Ansible-Clickhouse-Vector-Lighthouse
                       ansible-playbook site.yml -i inventory/prod.yml --check --diff'''
             }
-        }
- //   }
+     }
 }
