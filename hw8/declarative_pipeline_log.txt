@@ -1,0 +1,438 @@
+Started by user beketov
+Obtained hw8/Jenkinsfile from git git@github.com:beketovs/ansible.git
+[Pipeline] Start of Pipeline
+[Pipeline] node
+Running on slave_centos7 in /opt/jenkins_agent/workspace/pipeline_job
+[Pipeline] {
+[Pipeline] stage
+[Pipeline] { (Declarative: Checkout SCM)
+[Pipeline] checkout
+Selected Git installation does not exist. Using Default
+The recommended git tool is: NONE
+using credential 55de7e06-b284-4c1e-9345-1e0707bbc2d0
+Cloning the remote Git repository
+Cloning repository git@github.com:beketovs/ansible.git
+ > git init /opt/jenkins_agent/workspace/pipeline_job # timeout=10
+Fetching upstream changes from git@github.com:beketovs/ansible.git
+ > git --version # timeout=10
+ > git --version # 'git version 1.8.3.1'
+using GIT_SSH to set credentials 
+[INFO] Currently running in a labeled security context
+[INFO] Currently SELinux is 'enforcing' on the host
+ > /usr/bin/chcon --type=ssh_home_t /opt/jenkins_agent/workspace/pipeline_job@tmp/jenkins-gitclient-ssh18006939149329412371.key
+ > git fetch --tags --progress git@github.com:beketovs/ansible.git +refs/heads/*:refs/remotes/origin/* # timeout=10
+Avoid second fetch
+Checking out Revision d7349c79e9609ec7f934cf9d28d612d3c99d6164 (refs/remotes/origin/main)
+Commit message: "Update ScriptedJenkinsfile"
+First time build. Skipping changelog.
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] withEnv
+[Pipeline] {
+[Pipeline] stage
+[Pipeline] { (checkout git)
+[Pipeline] dir
+Running in /opt/jenkins_agent/workspace/pipeline_job/vector-role
+[Pipeline] {
+[Pipeline] git
+Selected Git installation does not exist. Using Default
+The recommended git tool is: NONE
+using credential 55de7e06-b284-4c1e-9345-1e0707bbc2d0
+Cloning the remote Git repository
+ > git config remote.origin.url git@github.com:beketovs/ansible.git # timeout=10
+ > git config --add remote.origin.fetch +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git rev-parse refs/remotes/origin/main^{commit} # timeout=10
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f d7349c79e9609ec7f934cf9d28d612d3c99d6164 # timeout=10
+Cloning repository git@github.com:beketovs/ansible.git
+ > git init /opt/jenkins_agent/workspace/pipeline_job/vector-role # timeout=10
+Fetching upstream changes from git@github.com:beketovs/ansible.git
+ > git --version # timeout=10
+ > git --version # 'git version 1.8.3.1'
+using GIT_SSH to set credentials 
+[INFO] Currently running in a labeled security context
+[INFO] Currently SELinux is 'enforcing' on the host
+ > /usr/bin/chcon --type=ssh_home_t /opt/jenkins_agent/workspace/pipeline_job/vector-role@tmp/jenkins-gitclient-ssh5939443975387561155.key
+ > git fetch --tags --progress git@github.com:beketovs/ansible.git +refs/heads/*:refs/remotes/origin/* # timeout=10
+Avoid second fetch
+Checking out Revision d7349c79e9609ec7f934cf9d28d612d3c99d6164 (refs/remotes/origin/main)
+Commit message: "Update ScriptedJenkinsfile"
+[Pipeline] }
+[Pipeline] // dir
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (install dependencies)
+[Pipeline] dir
+Running in /opt/jenkins_agent/workspace/pipeline_job/hw8/vector-role
+[Pipeline] {
+[Pipeline] sh
++ pip3 install -r requirements.txt
+Defaulting to user installation because normal site-packages is not writeable
+ > git config remote.origin.url git@github.com:beketovs/ansible.git # timeout=10
+ > git config --add remote.origin.fetch +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git rev-parse refs/remotes/origin/main^{commit} # timeout=10
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f d7349c79e9609ec7f934cf9d28d612d3c99d6164 # timeout=10
+ > git branch -a -v --no-abbrev # timeout=10
+ > git checkout -b main d7349c79e9609ec7f934cf9d28d612d3c99d6164 # timeout=10
+Collecting molecule==3.4.0
+  Downloading molecule-3.4.0-py3-none-any.whl (239 kB)
+Collecting molecule_docker
+  Downloading molecule_docker-1.1.0-py3-none-any.whl (16 kB)
+Collecting docker
+  Downloading docker-5.0.3-py2.py3-none-any.whl (146 kB)
+Collecting ansible-lint
+  Downloading ansible_lint-5.4.0-py3-none-any.whl (119 kB)
+Collecting yamllint
+  Downloading yamllint-1.27.1.tar.gz (129 kB)
+  Preparing metadata (setup.py): started
+  Preparing metadata (setup.py): finished with status 'done'
+Collecting dataclasses
+  Downloading dataclasses-0.8-py3-none-any.whl (19 kB)
+Collecting click-help-colors>=0.9
+  Downloading click_help_colors-0.9.1-py3-none-any.whl (5.5 kB)
+Collecting enrich>=1.2.5
+  Downloading enrich-1.2.7-py3-none-any.whl (8.7 kB)
+Collecting pluggy<1.0,>=0.7.1
+  Downloading pluggy-0.13.1-py2.py3-none-any.whl (18 kB)
+Collecting rich>=9.5.1
+  Downloading rich-12.5.1-py3-none-any.whl (235 kB)
+Requirement already satisfied: packaging in /usr/local/lib/python3.6/site-packages (from molecule==3.4.0->-r requirements.txt (line 1)) (21.3)
+Collecting subprocess-tee>=0.3.2
+  Downloading subprocess_tee-0.3.5-py3-none-any.whl (8.0 kB)
+Requirement already satisfied: setuptools>=42 in /usr/local/lib/python3.6/site-packages (from molecule==3.4.0->-r requirements.txt (line 1)) (59.6.0)
+Collecting cerberus!=1.3.3,!=1.3.4,>=1.3.1
+  Downloading Cerberus-1.3.2.tar.gz (52 kB)
+  Preparing metadata (setup.py): started
+  Preparing metadata (setup.py): finished with status 'done'
+Collecting click<9,>=8.0
+  Downloading click-8.0.4-py3-none-any.whl (97 kB)
+Collecting cookiecutter>=1.7.3
+  Downloading cookiecutter-1.7.3-py2.py3-none-any.whl (34 kB)
+Collecting paramiko<3,>=2.5.0
+  Downloading paramiko-2.11.0-py2.py3-none-any.whl (212 kB)
+Requirement already satisfied: selinux in /usr/local/lib/python3.6/site-packages (from molecule==3.4.0->-r requirements.txt (line 1)) (0.2.1)
+Requirement already satisfied: Jinja2>=2.11.3 in /usr/local/lib/python3.6/site-packages (from molecule==3.4.0->-r requirements.txt (line 1)) (3.0.3)
+Collecting PyYAML<6,>=5.1
+  Downloading PyYAML-5.4.1-cp36-cp36m-manylinux1_x86_64.whl (640 kB)
+Collecting ansible-compat>=0.5.0
+  Downloading ansible_compat-1.0.0-py3-none-any.whl (16 kB)
+Collecting requests
+  Downloading requests-2.27.1-py2.py3-none-any.whl (63 kB)
+Collecting websocket-client>=0.32.0
+  Downloading websocket_client-1.3.1-py3-none-any.whl (54 kB)
+Collecting wcmatch>=7.0
+  Downloading wcmatch-8.3-py3-none-any.whl (42 kB)
+Collecting tenacity
+  Downloading tenacity-8.0.1-py3-none-any.whl (24 kB)
+Collecting typing-extensions
+  Downloading typing_extensions-4.1.1-py3-none-any.whl (26 kB)
+Collecting ruamel.yaml<1,>=0.15.34
+  Downloading ruamel.yaml-0.17.21-py3-none-any.whl (109 kB)
+Collecting pathspec>=0.5.3
+  Downloading pathspec-0.9.0-py2.py3-none-any.whl (31 kB)
+Collecting cached-property~=1.5
+  Downloading cached_property-1.5.2-py2.py3-none-any.whl (7.6 kB)
+Collecting importlib-metadata
+  Downloading importlib_metadata-4.8.3-py3-none-any.whl (17 kB)
+Collecting poyo>=0.5.0
+  Downloading poyo-0.5.0-py2.py3-none-any.whl (10 kB)
+Collecting six>=1.10
+  Downloading six-1.16.0-py2.py3-none-any.whl (11 kB)
+Collecting python-slugify>=4.0.0
+  Downloading python_slugify-6.1.2-py2.py3-none-any.whl (9.4 kB)
+Collecting jinja2-time>=0.2.0
+  Downloading jinja2_time-0.2.0-py2.py3-none-any.whl (6.4 kB)
+Collecting binaryornot>=0.4.4
+  Downloading binaryornot-0.4.4-py2.py3-none-any.whl (9.0 kB)
+Requirement already satisfied: MarkupSafe>=2.0 in /usr/local/lib64/python3.6/site-packages (from Jinja2>=2.11.3->molecule==3.4.0->-r requirements.txt (line 1)) (2.0.1)
+Collecting bcrypt>=3.1.3
+  Downloading bcrypt-3.2.2-cp36-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (61 kB)
+Collecting pynacl>=1.0.1
+  Downloading PyNaCl-1.5.0-cp36-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (1.1 MB)
+Requirement already satisfied: cryptography>=2.5 in /usr/local/lib64/python3.6/site-packages (from paramiko<3,>=2.5.0->molecule==3.4.0->-r requirements.txt (line 1)) (37.0.4)
+Collecting certifi>=2017.4.17
+  Downloading certifi-2022.6.15-py3-none-any.whl (160 kB)
+Collecting idna<4,>=2.5
+  Downloading idna-3.3-py3-none-any.whl (61 kB)
+Collecting urllib3<1.27,>=1.21.1
+  Downloading urllib3-1.26.11-py2.py3-none-any.whl (139 kB)
+Collecting charset-normalizer~=2.0.0
+  Downloading charset_normalizer-2.0.12-py3-none-any.whl (39 kB)
+Collecting pygments<3.0.0,>=2.6.0
+  Downloading Pygments-2.13.0-py3-none-any.whl (1.1 MB)
+Collecting commonmark<0.10.0,>=0.9.0
+  Downloading commonmark-0.9.1-py2.py3-none-any.whl (51 kB)
+Collecting ruamel.yaml.clib>=0.2.6
+  Downloading ruamel.yaml.clib-0.2.6-cp36-cp36m-manylinux1_x86_64.whl (552 kB)
+Collecting bracex>=2.1.1
+  Downloading bracex-2.2.1-py3-none-any.whl (12 kB)
+Requirement already satisfied: pyparsing!=3.0.5,>=2.0.2 in /usr/local/lib/python3.6/site-packages (from packaging->molecule==3.4.0->-r requirements.txt (line 1)) (3.0.9)
+Requirement already satisfied: distro>=1.3.0 in /usr/local/lib/python3.6/site-packages (from selinux->molecule==3.4.0->-r requirements.txt (line 1)) (1.7.0)
+Requirement already satisfied: cffi>=1.1 in /usr/local/lib64/python3.6/site-packages (from bcrypt>=3.1.3->paramiko<3,>=2.5.0->molecule==3.4.0->-r requirements.txt (line 1)) (1.15.1)
+Collecting chardet>=3.0.2
+  Downloading chardet-5.0.0-py3-none-any.whl (193 kB)
+Collecting zipp>=0.5
+  Downloading zipp-3.6.0-py3-none-any.whl (5.3 kB)
+Collecting arrow
+  Downloading arrow-1.2.2-py3-none-any.whl (64 kB)
+Collecting text-unidecode>=1.3
+  Downloading text_unidecode-1.3-py2.py3-none-any.whl (78 kB)
+Requirement already satisfied: pycparser in /usr/local/lib/python3.6/site-packages (from cffi>=1.1->bcrypt>=3.1.3->paramiko<3,>=2.5.0->molecule==3.4.0->-r requirements.txt (line 1)) (2.21)
+Collecting python-dateutil>=2.7.0
+  Downloading python_dateutil-2.8.2-py2.py3-none-any.whl (247 kB)
+Using legacy 'setup.py install' for yamllint, since package 'wheel' is not installed.
+Using legacy 'setup.py install' for cerberus, since package 'wheel' is not installed.
+Installing collected packages: six, zipp, typing-extensions, python-dateutil, pygments, dataclasses, commonmark, urllib3, text-unidecode, ruamel.yaml.clib, rich, importlib-metadata, idna, charset-normalizer, chardet, certifi, bracex, arrow, wcmatch, tenacity, ruamel.yaml, requests, PyYAML, python-slugify, pynacl, poyo, jinja2-time, enrich, click, binaryornot, bcrypt, websocket-client, subprocess-tee, pluggy, paramiko, cookiecutter, click-help-colors, cerberus, cached-property, ansible-lint, pathspec, molecule, docker, ansible-compat, yamllint, molecule-docker
+    Running setup.py install for cerberus: started
+    Running setup.py install for cerberus: finished with status 'done'
+    Running setup.py install for yamllint: started
+    Running setup.py install for yamllint: finished with status 'done'
+Successfully installed PyYAML-5.4.1 ansible-compat-1.0.0 ansible-lint-5.4.0 arrow-1.2.2 bcrypt-3.2.2 binaryornot-0.4.4 bracex-2.2.1 cached-property-1.5.2 cerberus-1.3.2 certifi-2022.6.15 chardet-5.0.0 charset-normalizer-2.0.12 click-8.0.4 click-help-colors-0.9.1 commonmark-0.9.1 cookiecutter-1.7.3 dataclasses-0.8 docker-5.0.3 enrich-1.2.7 idna-3.3 importlib-metadata-4.8.3 jinja2-time-0.2.0 molecule-3.4.0 molecule-docker-1.1.0 paramiko-2.11.0 pathspec-0.9.0 pluggy-0.13.1 poyo-0.5.0 pygments-2.13.0 pynacl-1.5.0 python-dateutil-2.8.2 python-slugify-6.1.2 requests-2.27.1 rich-12.5.1 ruamel.yaml-0.17.21 ruamel.yaml.clib-0.2.6 six-1.16.0 subprocess-tee-0.3.5 tenacity-8.0.1 text-unidecode-1.3 typing-extensions-4.1.1 urllib3-1.26.11 wcmatch-8.3 websocket-client-1.3.1 yamllint-1.27.1 zipp-3.6.0
+[Pipeline] }
+[Pipeline] // dir
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (run molecule)
+[Pipeline] dir
+Running in /opt/jenkins_agent/workspace/pipeline_job/hw8/vector-role
+[Pipeline] {
+[Pipeline] sh
++ molecule test
+/home/jenkins/.local/lib/python3.6/site-packages/requests/__init__.py:104: RequestsDependencyWarning: urllib3 (1.26.11) or chardet (5.0.0)/charset_normalizer (2.0.12) doesn't match a supported version!
+  RequestsDependencyWarning)
+INFO     default scenario test matrix: dependency, lint, cleanup, destroy, syntax, create, prepare, converge, idempotence, side_effect, verify, cleanup, destroy
+INFO     Performing prerun...
+INFO     Guessed /opt/jenkins_agent/workspace/pipeline_job as project root directory
+INFO     Using /home/jenkins/.cache/ansible-lint/718918/roles/nkiselyov.vector symlink to current repository in order to enable Ansible to find the role using its expected full name.
+INFO     Added ANSIBLE_ROLES_PATH=~/.ansible/roles:/usr/share/ansible/roles:/etc/ansible/roles:/home/jenkins/.cache/ansible-lint/718918/roles
+INFO     Running default > dependency
+/usr/local/lib/python3.6/site-packages/ansible/parsing/vault/__init__.py:44: CryptographyDeprecationWarning: Python 3.6 is no longer supported by the Python core team. Therefore, support for it is deprecated in cryptography and will be removed in a future release.
+  from cryptography.exceptions import InvalidSignature
+INFO     Running ansible-galaxy collection install --force -v community.docker:>=1.9.1
+/usr/local/lib/python3.6/site-packages/ansible/parsing/vault/__init__.py:44: CryptographyDeprecationWarning: Python 3.6 is no longer supported by the Python core team. Therefore, support for it is deprecated in cryptography and will be removed in a future release.
+  from cryptography.exceptions import InvalidSignature
+WARNING  Skipping, missing the requirements file.
+/usr/local/lib/python3.6/site-packages/ansible/parsing/vault/__init__.py:44: CryptographyDeprecationWarning: Python 3.6 is no longer supported by the Python core team. Therefore, support for it is deprecated in cryptography and will be removed in a future release.
+  from cryptography.exceptions import InvalidSignature
+WARNING  Skipping, missing the requirements file.
+INFO     Running default > lint
+INFO     Lint is disabled.
+INFO     Running default > cleanup
+WARNING  Skipping, cleanup playbook not configured.
+INFO     Running default > destroy
+INFO     Sanity checks: 'docker'
+/home/jenkins/.local/lib/python3.6/site-packages/paramiko/transport.py:33: CryptographyDeprecationWarning: Python 3.6 is no longer supported by the Python core team. Therefore, support for it is deprecated in cryptography and will be removed in a future release.
+  from cryptography.hazmat.backends import default_backend
+/usr/local/lib/python3.6/site-packages/ansible/parsing/vault/__init__.py:44: CryptographyDeprecationWarning: Python 3.6 is no longer supported by the Python core team. Therefore, support for it is deprecated in cryptography and will be removed in a future release.
+  from cryptography.exceptions import InvalidSignature
+[WARNING]: Collection community.docker does not support Ansible version 2.10.17
+
+PLAY [Destroy] *****************************************************************
+
+TASK [Destroy molecule instance(s)] ********************************************
+changed: [localhost] => (item=centos7)
+
+TASK [Wait for instance(s) deletion to complete] *******************************
+FAILED - RETRYING: Wait for instance(s) deletion to complete (300 retries left).
+ok: [localhost] => (item=centos7)
+
+TASK [Delete docker networks(s)] ***********************************************
+
+PLAY RECAP *********************************************************************
+localhost                  : ok=2    changed=1    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0
+
+INFO     Running default > syntax
+
+playbook: /opt/jenkins_agent/workspace/pipeline_job/hw8/vector-role/molecule/default/converge.yml
+/usr/local/lib/python3.6/site-packages/ansible/parsing/vault/__init__.py:44: CryptographyDeprecationWarning: Python 3.6 is no longer supported by the Python core team. Therefore, support for it is deprecated in cryptography and will be removed in a future release.
+  from cryptography.exceptions import InvalidSignature
+INFO     Running default > create
+/usr/local/lib/python3.6/site-packages/ansible/parsing/vault/__init__.py:44: CryptographyDeprecationWarning: Python 3.6 is no longer supported by the Python core team. Therefore, support for it is deprecated in cryptography and will be removed in a future release.
+  from cryptography.exceptions import InvalidSignature
+[WARNING]: Collection community.docker does not support Ansible version 2.10.17
+
+PLAY [Create] ******************************************************************
+
+TASK [Log into a Docker registry] **********************************************
+skipping: [localhost] => (item=None)
+skipping: [localhost]
+
+TASK [Check presence of custom Dockerfiles] ************************************
+ok: [localhost] => (item={'command': '/sbin/init', 'image': 'docker.io/pycontribs/centos:7', 'name': 'centos7', 'pre_build_image': True, 'privileged': True})
+
+TASK [Create Dockerfiles from image names] *************************************
+skipping: [localhost] => (item={'command': '/sbin/init', 'image': 'docker.io/pycontribs/centos:7', 'name': 'centos7', 'pre_build_image': True, 'privileged': True})
+
+TASK [Discover local Docker images] ********************************************
+ok: [localhost] => (item={'changed': False, 'skipped': True, 'skip_reason': 'Conditional result was False', 'item': {'command': '/sbin/init', 'image': 'docker.io/pycontribs/centos:7', 'name': 'centos7', 'pre_build_image': True, 'privileged': True}, 'ansible_loop_var': 'item', 'i': 0, 'ansible_index_var': 'i'})
+
+TASK [Build an Ansible compatible image (new)] *********************************
+skipping: [localhost] => (item=molecule_local/docker.io/pycontribs/centos:7)
+
+TASK [Create docker network(s)] ************************************************
+
+TASK [Determine the CMD directives] ********************************************
+ok: [localhost] => (item={'command': '/sbin/init', 'image': 'docker.io/pycontribs/centos:7', 'name': 'centos7', 'pre_build_image': True, 'privileged': True})
+
+TASK [Create molecule instance(s)] *********************************************
+changed: [localhost] => (item=centos7)
+
+TASK [Wait for instance(s) creation to complete] *******************************
+FAILED - RETRYING: Wait for instance(s) creation to complete (300 retries left).
+FAILED - RETRYING: Wait for instance(s) creation to complete (299 retries left).
+FAILED - RETRYING: Wait for instance(s) creation to complete (298 retries left).
+FAILED - RETRYING: Wait for instance(s) creation to complete (297 retries left).
+FAILED - RETRYING: Wait for instance(s) creation to complete (296 retries left).
+changed: [localhost] => (item={'started': 1, 'finished': 0, 'ansible_job_id': '14772673126.25167', 'results_file': '/home/jenkins/.ansible_async/14772673126.25167', 'changed': True, 'failed': False, 'item': {'command': '/sbin/init', 'image': 'docker.io/pycontribs/centos:7', 'name': 'centos7', 'pre_build_image': True, 'privileged': True}, 'ansible_loop_var': 'item'})
+
+PLAY RECAP *********************************************************************
+localhost                  : ok=5    changed=2    unreachable=0    failed=0    skipped=4    rescued=0    ignored=0
+
+INFO     Running default > prepare
+WARNING  Skipping, prepare playbook not configured.
+INFO     Running default > converge
+
+PLAY [Converge] ****************************************************************
+
+TASK [Gathering Facts] *********************************************************
+/usr/local/lib/python3.6/site-packages/ansible/parsing/vault/__init__.py:44: CryptographyDeprecationWarning: Python 3.6 is no longer supported by the Python core team. Therefore, support for it is deprecated in cryptography and will be removed in a future release.
+  from cryptography.exceptions import InvalidSignature
+[WARNING]: Collection community.docker does not support Ansible version 2.10.17
+ok: [centos7]
+
+TASK [Include vector] **********************************************************
+
+TASK [vector-role : include_tasks] *********************************************
+included: /opt/jenkins_agent/workspace/pipeline_job/hw8/vector-role/tasks/download_install_vector.yml for centos7
+
+TASK [vector-role : Vector | Download packages] ********************************
+[WARNING]: Collection community.docker does not support Ansible version 2.10.17
+changed: [centos7]
+
+TASK [vector-role : Vector | Install packages] *********************************
+[WARNING]: Collection community.docker does not support Ansible version 2.10.17
+changed: [centos7]
+
+TASK [vector-role : include_tasks] *********************************************
+included: /opt/jenkins_agent/workspace/pipeline_job/hw8/vector-role/tasks/apply_template.yml for centos7
+
+TASK [vector-role : Vector | Apply template] ***********************************
+[WARNING]: Collection community.docker does not support Ansible version 2.10.17
+[WARNING]: The value "0" (type int) was converted to "u'0'" (type string). If
+this does not look like what you expect, quote the entire value to ensure it
+does not change.
+changed: [centos7]
+
+TASK [vector-role : include_tasks] *********************************************
+included: /opt/jenkins_agent/workspace/pipeline_job/hw8/vector-role/tasks/apply_systemd_config.yml for centos7
+
+TASK [vector-role : Vector | change systemd unit] ******************************
+[WARNING]: Collection community.docker does not support Ansible version 2.10.17
+changed: [centos7]
+
+RUNNING HANDLER [vector-role : Start Vector service] ***************************
+[WARNING]: Collection community.docker does not support Ansible version 2.10.17
+changed: [centos7]
+
+PLAY RECAP *********************************************************************
+centos7                    : ok=9    changed=5    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+
+INFO     Running default > idempotence
+
+PLAY [Converge] ****************************************************************
+
+TASK [Gathering Facts] *********************************************************
+/usr/local/lib/python3.6/site-packages/ansible/parsing/vault/__init__.py:44: CryptographyDeprecationWarning: Python 3.6 is no longer supported by the Python core team. Therefore, support for it is deprecated in cryptography and will be removed in a future release.
+  from cryptography.exceptions import InvalidSignature
+[WARNING]: Collection community.docker does not support Ansible version 2.10.17
+ok: [centos7]
+
+TASK [Include vector] **********************************************************
+
+TASK [vector-role : include_tasks] *********************************************
+included: /opt/jenkins_agent/workspace/pipeline_job/hw8/vector-role/tasks/download_install_vector.yml for centos7
+
+TASK [vector-role : Vector | Download packages] ********************************
+[WARNING]: Collection community.docker does not support Ansible version 2.10.17
+ok: [centos7]
+
+TASK [vector-role : Vector | Install packages] *********************************
+[WARNING]: Collection community.docker does not support Ansible version 2.10.17
+ok: [centos7]
+
+TASK [vector-role : include_tasks] *********************************************
+included: /opt/jenkins_agent/workspace/pipeline_job/hw8/vector-role/tasks/apply_template.yml for centos7
+
+TASK [vector-role : Vector | Apply template] ***********************************
+[WARNING]: Collection community.docker does not support Ansible version 2.10.17
+[WARNING]: The value "0" (type int) was converted to "u'0'" (type string). If
+this does not look like what you expect, quote the entire value to ensure it
+does not change.
+ok: [centos7]
+
+TASK [vector-role : include_tasks] *********************************************
+included: /opt/jenkins_agent/workspace/pipeline_job/hw8/vector-role/tasks/apply_systemd_config.yml for centos7
+
+TASK [vector-role : Vector | change systemd unit] ******************************
+[WARNING]: Collection community.docker does not support Ansible version 2.10.17
+ok: [centos7]
+
+PLAY RECAP *********************************************************************
+centos7                    : ok=8    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+
+INFO     Idempotence completed successfully.
+INFO     Running default > side_effect
+WARNING  Skipping, side effect playbook not configured.
+INFO     Running default > verify
+INFO     Running Ansible Verifier
+
+PLAY [Verify] ******************************************************************
+
+TASK [Example assertion] *******************************************************
+/usr/local/lib/python3.6/site-packages/ansible/parsing/vault/__init__.py:44: CryptographyDeprecationWarning: Python 3.6 is no longer supported by the Python core team. Therefore, support for it is deprecated in cryptography and will be removed in a future release.
+  from cryptography.exceptions import InvalidSignature
+[WARNING]: Collection community.docker does not support Ansible version 2.10.17
+ok: [centos7] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+
+PLAY RECAP *********************************************************************
+centos7                    : ok=1    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+
+INFO     Verifier completed successfully.
+INFO     Running default > cleanup
+WARNING  Skipping, cleanup playbook not configured.
+INFO     Running default > destroy
+/usr/local/lib/python3.6/site-packages/ansible/parsing/vault/__init__.py:44: CryptographyDeprecationWarning: Python 3.6 is no longer supported by the Python core team. Therefore, support for it is deprecated in cryptography and will be removed in a future release.
+  from cryptography.exceptions import InvalidSignature
+[WARNING]: Collection community.docker does not support Ansible version 2.10.17
+
+PLAY [Destroy] *****************************************************************
+
+TASK [Destroy molecule instance(s)] ********************************************
+changed: [localhost] => (item=centos7)
+
+TASK [Wait for instance(s) deletion to complete] *******************************
+FAILED - RETRYING: Wait for instance(s) deletion to complete (300 retries left).
+changed: [localhost] => (item=centos7)
+
+TASK [Delete docker networks(s)] ***********************************************
+
+PLAY RECAP *********************************************************************
+localhost                  : ok=2    changed=2    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0
+
+INFO     Pruning extra files from scenario ephemeral directory
+[Pipeline] }
+[Pipeline] // dir
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] }
+[Pipeline] // withEnv
+[Pipeline] }
+[Pipeline] // node
+[Pipeline] End of Pipeline
+Finished: SUCCESS

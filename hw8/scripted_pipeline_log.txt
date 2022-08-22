@@ -1,0 +1,70 @@
+Started by user beketov
+ > git rev-parse --resolve-git-dir /var/lib/jenkins/caches/git-e590e0531d171c381b0a67f4851b6c1d/.git # timeout=10
+Setting origin to git@github.com:beketovs/ansible.git
+ > git config remote.origin.url git@github.com:beketovs/ansible.git # timeout=10
+Fetching origin...
+Fetching upstream changes from origin
+ > git --version # timeout=10
+ > git --version # 'git version 1.8.3.1'
+ > git config --get remote.origin.url # timeout=10
+using GIT_SSH to set credentials 
+[INFO] Currently running in a labeled security context
+[INFO] Currently SELinux is 'enforcing' on the host
+ > /usr/bin/chcon --type=ssh_home_t /var/lib/jenkins/caches/git-e590e0531d171c381b0a67f4851b6c1d@tmp/jenkins-gitclient-ssh16053271412428273062.key
+ > git fetch --tags --progress origin +refs/heads/*:refs/remotes/origin/* # timeout=10
+Seen branch in repository origin/main
+Seen 1 remote branch
+Obtained hw8/ScriptedJenkinsfile from d66f1a12a4fd6c793f83b74dcb9031036cc2b869
+[Pipeline] Start of Pipeline
+[Pipeline] node
+Running on slave_centos7 in /opt/jenkins_agent/workspace/multibranch_main
+[Pipeline] {
+[Pipeline] properties
+[Pipeline] stage
+[Pipeline] { (Git checkout)
+[Pipeline] git
+Selected Git installation does not exist. Using Default
+The recommended git tool is: NONE
+using credential 55de7e06-b284-4c1e-9345-1e0707bbc2d0
+Fetching changes from the remote Git repository
+ > git rev-parse --resolve-git-dir /opt/jenkins_agent/workspace/multibranch_main/.git # timeout=10
+ > git config remote.origin.url git@github.com:beketovs/ansible.git # timeout=10
+Fetching upstream changes from git@github.com:beketovs/ansible.git
+ > git --version # timeout=10
+ > git --version # 'git version 1.8.3.1'
+using GIT_SSH to set credentials 
+ > git fetch --tags --progress git@github.com:beketovs/ansible.git +refs/heads/*:refs/remotes/origin/* # timeout=10
+Checking out Revision d66f1a12a4fd6c793f83b74dcb9031036cc2b869 (refs/remotes/origin/main)
+Commit message: "change ip"
+ > git rev-parse refs/remotes/origin/main^{commit} # timeout=10
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f d66f1a12a4fd6c793f83b74dcb9031036cc2b869 # timeout=10
+ > git branch -a -v --no-abbrev # timeout=10
+ > git branch -D main # timeout=10
+ > git checkout -b main d66f1a12a4fd6c793f83b74dcb9031036cc2b869 # timeout=10
+ > git rev-list --no-walk a007ccfb4b9735a18b87dbc9d0ea9afcb89f7af2 # timeout=10
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Run playbook)
+[Pipeline] sh
++ cd hw8/playbook
++ ansible-playbook site.yml -i inventory/prod.yml --check --diff
+
+PLAY [Install Clickhouse] ******************************************************
+
+TASK [Gathering Facts] *********************************************************
+/usr/local/lib/python3.6/site-packages/ansible/parsing/vault/__init__.py:44: CryptographyDeprecationWarning: Python 3.6 is no longer supported by the Python core team. Therefore, support for it is deprecated in cryptography and will be removed in a future release.
+  from cryptography.exceptions import InvalidSignature
+fatal: [clickhouse-01]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: Host key verification failed.", "unreachable": true}
+
+PLAY RECAP *********************************************************************
+clickhouse-01              : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
+
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] }
+[Pipeline] // node
+[Pipeline] End of Pipeline
+ERROR: script returned exit code 4
+Finished: FAILURE
