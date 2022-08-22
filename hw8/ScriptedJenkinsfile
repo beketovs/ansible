@@ -1,5 +1,9 @@
 node("centos"){
-    withEnv(['prod_run==true']){
+    properties([
+  parameters([
+     booleanParam(name: 'DEPLOY_SHA', defaultValue: false),
+  ])
+])
         stage("Git checkout"){
                 git branch: 'main', credentialsId: '55de7e06-b284-4c1e-9345-1e0707bbc2d0', url: 'git@github.com:beketovs/ansible.git'
         }
@@ -13,5 +17,5 @@ node("centos"){
                       ansible-playbook site.yml -i inventory/prod.yml --check --diff'''
             }
         }
-    }
+ //   }
 }
