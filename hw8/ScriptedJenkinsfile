@@ -8,11 +8,12 @@ node("centos"){
         secret_check=true
     }
     stage("Run playbook"){
-         dir('hw8/Ansible-Clickhouse-Vector-Lighthouse')
         if (secret_check){
+            sh 'cd hw8/Ansible-Clickhouse-Vector-Lighthouse'
             sh 'ansible-playbook site.yml -i inventory/prod.yml'
         }
         else{
+            sh 'cd hw8/Ansible-Clickhouse-Vector-Lighthouse'
             sh 'ansible-playbook site.yml -i inventory/prod.yml --check --diff'
         }
     }
