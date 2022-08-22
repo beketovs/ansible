@@ -3,7 +3,7 @@ node("centos"){
             git branch: 'main', credentialsId: '55de7e06-b284-4c1e-9345-1e0707bbc2d0', url: 'git@github.com:beketovs/ansible.git'
     }
     stage(" Define environment"){
-        prod_run = False
+        prod_run=False
     }
     stage("Run playbook"){
         if (prod_run){
