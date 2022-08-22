@@ -1,9 +1,7 @@
 node("centos"){
+    withEnv(['prod_run==true']){
     stage("Git checkout"){
             git branch: 'main', credentialsId: '55de7e06-b284-4c1e-9345-1e0707bbc2d0', url: 'git@github.com:beketovs/ansible.git'
-    }
-    stage(" Define environment"){
-        withEnv(['prod_run==true'])
     }
     stage("Run playbook"){
         if (env.prod_run=='true'){
@@ -14,5 +12,6 @@ node("centos"){
             sh '''cd hw8/Ansible-Clickhouse-Vector-Lighthouse
                   ansible-playbook site.yml -i inventory/prod.yml --check --diff'''
         }
+    }
     }
 }
